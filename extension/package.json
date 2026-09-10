@@ -1,0 +1,24 @@
+{
+  "name": "wordai911-extension",
+  "version": "0.3.0",
+  "description": "WordAI911 Pi 扩展：注册 word_* 工具，经本地 TCP 网关（127.0.0.1:47611）直达 C# Word 宿主",
+  "private": true,
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "npm run build && node --test test/",
+    "gateway": "node mock/mock-gateway.mjs"
+  },
+  "dependencies": {
+    "@earendil-works/pi-coding-agent": "0.85.1",
+    "typebox": "1.3.7"
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "typescript": "^5.5.4"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
