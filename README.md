@@ -43,6 +43,13 @@ VSTO 插件（`src/WordAI.Addin`）需在 Windows 上用 Visual Studio（含 VST
 
 遵循语义化版本（SemVer），每个里程碑打 tag 推送。见 [Releases](https://github.com/bingjian999/wordai911/releases)。
 
+| 版本 | 内容 | 状态 |
+|---|---|---|
+| v0.1.0 | 仓库骨架 + 技术方案 v3 + 通道 B 协议规范 | ✅ |
+| v0.2.0 | C# AgentHelper：通道 B 网关 / 通道 A Pi RPC 客户端 / 运行时锁与守护 / IUiBridge，44 项 xunit 测试全绿 | ✅ |
+| v0.3.0 | TS 扩展生产版（gateway-client、6 个 word_* 工具注册、生命周期）+ 测试 | 🚧 |
+| v0.4.0 | VSTO 宿主层（WordHost COM、UiBridge、Ribbon）+ GitHub Actions CI | ⏳ |
+
 ## 许可
 
 私有仓库，仅限授权协作者。
