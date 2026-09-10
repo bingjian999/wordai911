@@ -7,7 +7,7 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "test": "npm run build && node --test \"test/*.test.mjs\"",
+    "test": "npm run build && node --test test/gateway-client.test.mjs test/tools.test.mjs",
     "gateway": "node mock/mock-gateway.mjs"
   },
   "dependencies": {
