@@ -1,0 +1,23 @@
+# build artifacts
+bin/
+obj/
+out/
+dist/
+*.user
+*.suo
+.vs/
+packages/
+
+# node
+node_modules/
+*.tsbuildinfo
+coverage/
+
+# runtime
+*.log
+.env
+.env.*
+!.env.example
+
+# lock token files never committed
+test/**/*.token
