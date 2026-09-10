@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+    tags: ['v*']
+  pull_request:
+
+jobs:
+  csharp:
+    name: C# AgentHelper（Linux 构建 + 测试）
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: 构建 + 单元测试
+        run: dotnet test src/WordAI.Agent.Tests --configuration Release
+
+  extension:
+    name: TS 扩展（Node 20 构建 + 测试）
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: extension
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: 安装依赖
+        run: npm ci
+
+      - name: 构建 + 测试
+        run: npm test
+
+  # 说明：src/WordAI.Addin（VSTO 宿主层）只能在 Windows + Visual Studio
+  # （Office/VSTO 工作负载）下构建，不在 CI 范围内。

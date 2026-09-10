@@ -37,7 +37,9 @@ cd src && dotnet test WordAI.Agent.Tests
 cd extension && npm install && npm test
 ```
 
-VSTO 插件（`src/WordAI.Addin`）需在 Windows 上用 Visual Studio（含 VSTO 工作负载）构建。
+VSTO 插件（`src/WordAI.Addin`）需在 Windows 上用 Visual Studio（含 VSTO 工作负载）构建：首次在 VS 中打开 `WordAI.Addin.csproj`，VS 会接管并补全标准 VSTO 脚手架（部署清单等），随后 F5 调试。启动后功能区会出现「WordAI」选项卡，可查看通道 B 网关状态（127.0.0.1:47611）。
+
+CI（GitHub Actions，push/PR 触发）：ubuntu 上跑 C# 库单元测试与 TS 扩展测试，见 [ci.yml](.github/workflows/ci.yml)。
 
 ## 版本
 
@@ -48,7 +50,7 @@ VSTO 插件（`src/WordAI.Addin`）需在 Windows 上用 Visual Studio（含 VST
 | v0.1.0 | 仓库骨架 + 技术方案 v3 + 通道 B 协议规范 | ✅ |
 | v0.2.0 | C# AgentHelper：通道 B 网关 / 通道 A Pi RPC 客户端 / 运行时锁与守护 / IUiBridge，44 项 xunit 测试全绿 | ✅ |
 | v0.3.0 | TS 扩展生产版（gateway-client 含断线自愈重试、6 个 word_* 工具、mock 网关），21 项测试全绿 | ✅ |
-| v0.4.0 | VSTO 宿主层（WordHost COM、UiBridge、Ribbon）+ GitHub Actions CI | ⏳ |
+| v0.4.0 | VSTO 宿主层（WordHost COM、UiBridge、Ribbon）+ GitHub Actions CI | ✅ 代码就绪（Windows 编译验证待办） |
 
 ## 许可
 
